@@ -1,0 +1,8 @@
+{
+    "ERROR_BASE": "Visual Notifications has detected a configuration error.",
+    "ERROR_UNDEF": "Unknown error. Check the logs.",
+    "ERROR_HEADER": "Delete the header entry from your configuration. This module does not need it. (You can view the docs!)",
+    "ERROR_POSITION": "For this module to work properly, you need to set the position to fullscreen_above. (You can view the docs!)",
+    "ERROR_CUSTOM": "There was an error parsing the custom notifications types. Check for spelling errors.",
+    "PAYLOAD_MALFORMED": "A malformed notification has been received, you can see it in the logs."
+}

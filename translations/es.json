@@ -1,0 +1,8 @@
+{
+    "ERROR_BASE": "Visual Notifications detectó un error de configuración.",
+    "ERROR_UNDEF": "Error desconocido. Puede mirar los logs.",
+    "ERROR_HEADER": "Elimina la entrada del título (header:) de este módulo, ya que este no lo necesita. Puedes mirar los docs!",
+    "ERROR_POSITION": "Para que este módulo funcione la posición debe ser fullscreen_above. Puedes mirar los docs!",
+    "ERROR_CUSTOM": "Ocurrió un error al procesar las notificaciones custom, comprueba errores de escritura.",
+    "PAYLOAD_MALFORMED": "Se recibió una notificación malformada, puede verla en los logs."
+}

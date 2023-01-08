@@ -1,0 +1,505 @@
+/*
+ * MMM-DolarArgentina
+ * MIT License
+ *
+ * By Fabrizz <3
+ */
+ 
+/*************   GVARIABLES   **************/
+:root {
+  --VSNO-SYSTEM-INFO-COLOR: var(--color-text-dimmed);
+
+  --VSNO-THEME-DEF-DARK-TEXT-COLOR-BRIGHT: #FFF;
+  --VSNO-THEME-DEF-DARK-TEXT-COLOR: #dadada;
+  --VSNO-THEME-DEF-DARK-TEXT-COLOR-DIMMED: #8b8b8b;
+  --VSNO-THEME-DEF-DARK-BACKGROUND: #000;
+  --VSNO-THEME-DEF-LIGHT-TEXT-COLOR-BRIGHT: #000;
+  --VSNO-THEME-DEF-LIGHT-TEXT-COLOR: #212121;
+  --VSNO-THEME-DEF-LIGHT-TEXT-COLOR-DIMMED: #7c7c7c;
+  --VSNO-THEME-DEF-LIGHT-BACKGROUND: #FFF;
+}
+/* :root{
+    --VSNO-THEME-DARK-TEXT-COLOR-BRIGHT: var(--VSNO-THEME-DEF-DARK-TEXT-COLOR-BRIGHT);
+    --VSNO-THEME-DARK-TEXT-COLOR: var(--VSNO-THEME-DEF-DARK-TEXT-COLOR);
+    --VSNO-THEME-DARK-TEXT-COLOR-DIMMED: var(--VSNO-THEME-DEF-DARK-TEXT-COLOR-DIMMED);
+    --VSNO-THEME-DARK-BACKGROUND: var(--VSNO-THEME-DEF-DARK-BACKGROUND);
+    --VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT: var(--VSNO-THEME-DEF-LIGHT-TEXT-COLOR-BRIGHT);
+    --VSNO-THEME-LIGHT-TEXT-COLOR: var(--VSNO-THEME-DEF-LIGHT-TEXT-COLOR);
+    --VSNO-THEME-LIGHT-TEXT-COLOR-DIMMED: var(--VSNO-THEME-DEF-LIGHT-TEXT-COLOR-DIMMED);
+    --VSNO-THEME-LIGHT-BACKGROUND: var(--VSNO-THEME-DEF-LIGHT-BACKGROUND);
+} */
+/* :root{
+    --VSNO-THEME-DARK-TEXT-COLOR-BRIGHT: var(--SP-LightVibrant);
+    --VSNO-THEME-DARK-TEXT-COLOR: var(--SP-LightVibrant);
+    --VSNO-THEME-DARK-TEXT-COLOR-DIMMED: var(--SP-LightVibrant);
+    --VSNO-THEME-DARK-BACKGROUND: var(--SP-DarkMuted);
+    --VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT: var(--SP-DarkMuted);
+    --VSNO-THEME-LIGHT-TEXT-COLOR: var(--SP-DarkMuted);
+    --VSNO-THEME-LIGHT-TEXT-COLOR-DIMMED: var(--SP-DarkMuted);
+    --VSNO-THEME-LIGHT-BACKGROUND: var(--SP-LightVibrant);
+} */
+
+/*************     STYLES     **************/
+/* ROUNDEDCENTER */ /*********************************************************************************/
+:root {
+  --VSNO-ROUNDEDCENTER-CONTAINER-PADDING-TOP: 38px;
+  --VSNO-ROUNDEDCENTER-CONTAINER-PADDING-BOTTOM: 38px;
+  --VSNO-ROUNDEDCENTER-CONTAINER-PADDING-LEFT: 44px;
+  --VSNO-ROUNDEDCENTER-CONTAINER-PADDING-RIGHT: 44px;
+  --VSNO-ROUNDEDCENTER-CONTAINER-SPACING: 12px;
+  --VSNO-ROUNDEDCENTER-VIEWPORT-CALC-V: 1.8;
+  --VSNO-ROUNDEDCENTER-VIEWPORT-CALC-H: 3.8;
+}
+.MMM-VisualNotifications .roundedCenter .container {
+    background-color: var(--VSNO-THEME-LIGHT-BACKGROUND);
+    padding-top: var(--VSNO-ROUNDEDCENTER-CONTAINER-PADDING-TOP);
+    padding-bottom: var(--VSNO-ROUNDEDCENTER-CONTAINER-PADDING-BOTTOM);
+    padding-left: var(--VSNO-ROUNDEDCENTER-CONTAINER-PADDING-LEFT);
+    padding-right: var(--VSNO-ROUNDEDCENTER-CONTAINER-PADDING-RIGHT);
+    max-width: calc(100vw / var(--VSNO-ROUNDEDCENTER-VIEWPORT-CALC-V));
+    border-radius: 44px;
+    text-align: initial;
+    align-items: center;
+    transition: background-color 2s;
+}
+@media (orientation: landscape) {
+    .MMM-VisualNotifications .roundedCenter .container {
+        max-width: calc(100vw / var(--VSNO-ROUNDEDCENTER-VIEWPORT-CALC-H)) !important;
+    }
+    .MMM-VisualNotifications .roundedCenter .image {
+        max-width: none !important;
+        display: flex;
+        align-self: stretch !important;
+    }
+    .MMM-VisualNotifications .roundedCenter .message {
+        max-width: calc(100vw / (var(--VSNO-ROUNDEDCENTER-VIEWPORT-CALC-H) * 0.8)) !important;
+    }
+}
+.MMM-VisualNotifications .roundedCenter .gap-small { height: 8px; }
+.MMM-VisualNotifications .roundedCenter .gap-medium { height: 16px; }
+.MMM-VisualNotifications .roundedCenter .gap-large { height: 24px; }
+.MMM-VisualNotifications .roundedCenter .gap-smallreverse { margin-top: -8px; }
+.MMM-VisualNotifications .roundedCenter .gap-mediumreverse { margin-top: -16px; }
+.MMM-VisualNotifications .roundedCenter .gap-largereverse { margin-top: -24px; }
+.MMM-VisualNotifications .roundedCenter .gap-bottomreverse { margin-bottom: calc(var(--VSNO-ROUNDEDCENTER-CONTAINER-SPACING) - var(--VSNO-ROUNDEDCENTER-CONTAINER-PADDING-BOTTOM)); }
+.MMM-VisualNotifications .roundedCenter .gap-topreverse { margin-top: calc(var(--VSNO-ROUNDEDCENTER-CONTAINER-SPACING) - var(--VSNO-ROUNDEDCENTER-CONTAINER-PADDING-TOP)); }
+.MMM-VisualNotifications .roundedCenter .icon {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: color 2s;
+    width: auto;
+    height: 2.4em;
+}
+.MMM-VisualNotifications .roundedCenter .title {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: color 2s;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: -6px;
+    text-align: center;
+}
+.MMM-VisualNotifications .roundedCenter .subtitle {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR);
+    transition: color 2s;
+    font-weight: 200;
+    font-size: 24px;
+    max-width: 500px;
+    text-align: center;
+    line-height: 26px;
+}
+.MMM-VisualNotifications .roundedCenter .image {
+    border-radius: 34px;
+    object-fit: cover;
+    margin-left: calc(var(--VSNO-ROUNDEDCENTER-CONTAINER-SPACING) - var(--VSNO-ROUNDEDCENTER-CONTAINER-PADDING-LEFT));
+    margin-right: calc(var(--VSNO-ROUNDEDCENTER-CONTAINER-SPACING) - var(--VSNO-ROUNDEDCENTER-CONTAINER-PADDING-RIGHT));
+    max-width: calc(100vw / var(--VSNO-ROUNDEDCENTER-VIEWPORT-CALC-V));
+    align-self: auto;
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: color 2s;
+}
+.MMM-VisualNotifications .roundedCenter .message {
+    max-width: calc(100vw / (var(--VSNO-ROUNDEDCENTER-VIEWPORT-CALC-V) * 0.8));
+    text-align: center;
+    font-family: 'Roboto Condensed';
+    text-shadow: 0px 0px 20px #00000066;
+    color: var(--VSNO-THEME-DARK-TEXT-COLOR-BRIGHT);
+    transition: color 2s;
+    font-weight: 300;
+}
+.MMM-VisualNotifications .roundedCenter .progress {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    align-self: stretch;
+}
+.MMM-VisualNotifications .roundedCenter .progress-bg {
+    height: 6px;
+    display: flex;
+    background-color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: background-color 2s;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.MMM-VisualNotifications .roundedCenter .progress-bar {
+    border-radius: 10px;
+    background-color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: background-color 2s;
+}
+.MMM-VisualNotifications .roundedCenter .progress-data {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.MMM-VisualNotifications .roundedCenter .progress-data-text {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-DIMMED);
+    transition: color 2s;
+}
+.MMM-VisualNotifications .roundedCenter .progress-data-number {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-DIMMED);
+    transition: color 2s;
+}
+
+/* ROUNDEDLEFT */ /*********************************************************************************/
+:root {
+  --VSNO-ROUNDEDLEFT-CONTAINER-PADDING-TOP: 38px;
+  --VSNO-ROUNDEDLEFT-CONTAINER-PADDING-BOTTOM: 38px;
+  --VSNO-ROUNDEDLEFT-CONTAINER-PADDING-LEFT: 44px;
+  --VSNO-ROUNDEDLEFT-CONTAINER-PADDING-RIGHT: 44px;
+  --VSNO-ROUNDEDLEFT-CONTAINER-SPACING: 12px;
+  --VSNO-ROUNDEDLEFT-VIEWPORT-CALC-V: 1.8;
+  --VSNO-ROUNDEDLEFT-VIEWPORT-CALC-H: 3.8;
+}
+.MMM-VisualNotifications .roundedLeft .container {
+    background-color: var(--VSNO-THEME-LIGHT-BACKGROUND);
+    padding-top: var(--VSNO-ROUNDEDLEFT-CONTAINER-PADDING-TOP);
+    padding-bottom: var(--VSNO-ROUNDEDLEFT-CONTAINER-PADDING-BOTTOM);
+    padding-left: var(--VSNO-ROUNDEDLEFT-CONTAINER-PADDING-LEFT);
+    padding-right: var(--VSNO-ROUNDEDLEFT-CONTAINER-PADDING-RIGHT);
+    max-width: calc(100vw / var(--VSNO-ROUNDEDLEFT-VIEWPORT-CALC-V));
+    border-radius: 44px;
+    text-align: initial;
+    align-items: flex-start;
+    transition: background-color 2s;
+}
+@media (orientation: landscape) {
+    .MMM-VisualNotifications .roundedLeft .container {
+        max-width: calc(100vw / var(--VSNO-ROUNDEDLEFT-VIEWPORT-CALC-H)) !important;
+    }
+    .MMM-VisualNotifications .roundedLeft .image {
+        max-width: none !important;
+        display: flex;
+        align-self: stretch !important;
+    }
+    .MMM-VisualNotifications .roundedLeft .message {
+        max-width: calc(100vw / (var(--VSNO-ROUNDEDLEFT-VIEWPORT-CALC-H) * 0.8)) !important;
+    }
+}
+.MMM-VisualNotifications .roundedLeft .gap-small { height: 8px; }
+.MMM-VisualNotifications .roundedLeft .gap-medium { height: 16px; }
+.MMM-VisualNotifications .roundedLeft .gap-large { height: 24px; }
+.MMM-VisualNotifications .roundedLeft .gap-smallreverse { margin-top: -8px; }
+.MMM-VisualNotifications .roundedLeft .gap-mediumreverse { margin-top: -16px; }
+.MMM-VisualNotifications .roundedLeft .gap-largereverse { margin-top: -24px; }
+.MMM-VisualNotifications .roundedLeft .gap-bottomreverse { margin-bottom: calc(var(--VSNO-ROUNDEDLEFT-CONTAINER-SPACING) - var(--VSNO-ROUNDEDLEFT-CONTAINER-PADDING-BOTTOM)); }
+.MMM-VisualNotifications .roundedLeft .gap-topreverse { margin-top: calc(var(--VSNO-ROUNDEDLEFT-CONTAINER-SPACING) - var(--VSNO-ROUNDEDLEFT-CONTAINER-PADDING-TOP)); }
+.MMM-VisualNotifications .roundedLeft .icon {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: color 2s;
+    width: auto;
+    height: 2.4em;
+}
+.MMM-VisualNotifications .roundedLeft .title {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: color 2s;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: -6px;
+    text-align: left;
+}
+.MMM-VisualNotifications .roundedLeft .subtitle {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR);
+    transition: color 2s;
+    font-weight: 200;
+    font-size: 24px;
+    max-width: 500px;
+    text-align: left;
+    line-height: 26px;
+}
+.MMM-VisualNotifications .roundedLeft .image {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: color 2s;
+    border-radius: 34px;
+    object-fit: cover;
+    margin-left: calc(var(--VSNO-ROUNDEDLEFT-CONTAINER-SPACING) - var(--VSNO-ROUNDEDLEFT-CONTAINER-PADDING-LEFT));
+    margin-right: calc(var(--VSNO-ROUNDEDLEFT-CONTAINER-SPACING) - var(--VSNO-ROUNDEDLEFT-CONTAINER-PADDING-RIGHT));
+    max-width: calc(100vw / var(--VSNO-ROUNDEDLEFT-VIEWPORT-CALC-V));
+    align-self: auto;
+}
+.MMM-VisualNotifications .roundedLeft .message {
+    max-width: calc(100vw / (var(--VSNO-ROUNDEDLEFT-VIEWPORT-CALC-V) * 0.8));
+    transition: color 2s;
+    text-align: center;
+    font-family: 'Roboto Condensed';
+    text-shadow: 0px 0px 20px #00000066;
+    color: var(--VSNO-THEME-DARK-TEXT-COLOR-BRIGHT);
+    font-weight: 300;
+}
+.MMM-VisualNotifications .roundedLeft .progress {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    align-self: stretch;
+}
+.MMM-VisualNotifications .roundedLeft .progress-bg {
+    height: 6px;
+    display: flex;
+    background-color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: background-color 2s;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.MMM-VisualNotifications .roundedLeft .progress-bar {
+    border-radius: 10px;
+    background-color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: background-color 2s;
+}
+.MMM-VisualNotifications .roundedLeft .progress-data {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.MMM-VisualNotifications .roundedCenter .progress-data-text {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-DIMMED);
+    transition: color 2s;
+}
+.MMM-VisualNotifications .roundedCenter .progress-data-number {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-DIMMED);
+    transition: color 2s;
+}
+
+/* SQUAREDLEFT */ /*********************************************************************************/
+:root {
+  --VSNO-SQUAREDLEFT-CONTAINER-PADDING-TOP: 32px;
+  --VSNO-SQUAREDLEFT-CONTAINER-PADDING-BOTTOM: 32px;
+  --VSNO-SQUAREDLEFT-CONTAINER-PADDING-LEFT: 40px;
+  --VSNO-SQUAREDLEFT-CONTAINER-PADDING-RIGHT: 40px;
+  --VSNO-SQUAREDLEFT-CONTAINER-SPACING: 12px;
+  --VSNO-SQUAREDLEFT-VIEWPORT-CALC-V: 1.8;
+  --VSNO-SQUAREDLEFT-VIEWPORT-CALC-H: 3.8;
+}
+.MMM-VisualNotifications .squaredLeft .container {
+    background-color: var(--VSNO-THEME-LIGHT-BACKGROUND);
+    padding-top: var(--VSNO-SQUAREDLEFT-CONTAINER-PADDING-TOP);
+    padding-bottom: var(--VSNO-SQUAREDLEFT-CONTAINER-PADDING-BOTTOM);
+    padding-left: var(--VSNO-SQUAREDLEFT-CONTAINER-PADDING-LEFT);
+    padding-right: var(--VSNO-SQUAREDLEFT-CONTAINER-PADDING-RIGHT);
+    max-width: calc(100vw / var(--VSNO-SQUAREDLEFT-VIEWPORT-CALC-V));
+    text-align: initial;
+    align-items: flex-start;
+    transition: background-color 2s;
+}
+@media (orientation: landscape) {
+    .MMM-VisualNotifications .squaredLeft .container {
+        max-width: calc(100vw / var(--VSNO-SQUAREDLEFT-VIEWPORT-CALC-H)) !important;
+    }
+    .MMM-VisualNotifications .squaredLeft .image {
+        max-width: none !important;
+        display: flex;
+        align-self: stretch !important;
+    }
+    .MMM-VisualNotifications .squaredLeft .message {
+        max-width: calc(100vw / (var(--VSNO-SQUAREDLEFT-VIEWPORT-CALC-H) * 0.8)) !important;
+    }
+}
+.MMM-VisualNotifications .squaredLeft .gap-small { height: 8px; }
+.MMM-VisualNotifications .squaredLeft .gap-medium { height: 16px; }
+.MMM-VisualNotifications .squaredLeft .gap-large { height: 24px; }
+.MMM-VisualNotifications .squaredLeft .gap-smallreverse { margin-top: -8px; }
+.MMM-VisualNotifications .squaredLeft .gap-mediumreverse { margin-top: -16px; }
+.MMM-VisualNotifications .squaredLeft .gap-largereverse { margin-top: -24px; }
+.MMM-VisualNotifications .squaredLeft .gap-bottomreverse { margin-bottom: calc(var(--VSNO-SQUAREDLEFT-CONTAINER-SPACING) - var(--VSNO-SQUAREDLEFT-CONTAINER-PADDING-BOTTOM)); }
+.MMM-VisualNotifications .squaredLeft .gap-topreverse { margin-top: calc(var(--VSNO-SQUAREDLEFT-SQUAREDLEFT-SPACING) - var(--VSNO-SQUAREDLEFT-CONTAINER-PADDING-TOP)); }
+.MMM-VisualNotifications .squaredLeft .icon {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: color 2s;
+    width: auto;
+    height: 2.4em;
+}
+.MMM-VisualNotifications .squaredLeft .title {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: color 2s;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: -6px;
+    text-align: left;
+}
+.MMM-VisualNotifications .squaredLeft .subtitle {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR);
+    transition: color 2s;
+    font-weight: 200;
+    font-size: 24px;
+    max-width: 500px;
+    text-align: left;
+    line-height: 26px;
+}
+.MMM-VisualNotifications .squaredLeft .image {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: color 2s;
+    object-fit: cover;
+    margin-left: calc(var(--VSNO-SQUAREDLEFT-CONTAINER-SPACING) - var(--VSNO-SQUAREDLEFT-CONTAINER-PADDING-LEFT));
+    margin-right: calc(var(--VSNO-SQUAREDLEFT-CONTAINER-SPACING) - var(--VSNO-SQUAREDLEFT-CONTAINER-PADDING-RIGHT));
+    max-width: calc(100vw / var(--VSNO-SQUAREDLEFT-VIEWPORT-CALC-V));
+    align-self: auto;
+}
+.MMM-VisualNotifications .squaredLeft .message {
+    max-width: calc(100vw / (var(--VSNO-SQUAREDLEFT-VIEWPORT-CALC-V) * 0.8));
+    transition: color 2s;
+    text-align: center;
+    font-family: 'Roboto Condensed';
+    text-shadow: 0px 0px 20px #00000066;
+    color: var(--VSNO-THEME-DARK-TEXT-COLOR-BRIGHT);
+    font-weight: 300;
+}
+.MMM-VisualNotifications .squaredLeft .progress {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    align-self: stretch;
+}
+.MMM-VisualNotifications .squaredLeft .progress-bg {
+    height: 6px;
+    display: flex;
+    background-color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: background-color 2s;
+    overflow: hidden;
+}
+.MMM-VisualNotifications .squaredLeft .progress-bar {
+    background-color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-BRIGHT);
+    transition: background-color 2s;
+}
+.MMM-VisualNotifications .squaredLeft .progress-data {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.MMM-VisualNotifications .squaredLeft .progress-data-text {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-DIMMED);
+    transition: color 2s;
+}
+.MMM-VisualNotifications .squaredLeft .progress-data-number {
+    color: var(--VSNO-THEME-LIGHT-TEXT-COLOR-DIMMED);
+    transition: color 2s;
+}
+
+/*************   ANIMATIONS   **************/
+:root {
+    /* DECALRE ANIMATION DURATION HERE */
+    /* --VSNO-ANIMATION-DECLARATION-[UPPERCASE NAME]: <TIME IN MS>; */
+    --VSNO-ANIMATION-DECLARATION-FADEIN: 2000;
+    --VSNO-ANIMATION-DECLARATION-FADEOUT: 2000;
+    --VSNO-ANIMATION-DECLARATION-SLIDEINTOP: 1500;
+    --VSNO-ANIMATION-DECLARATION-SLIDEINLEFT: 1500;
+    --VSNO-ANIMATION-DECLARATION-SLIDEOUTBOTTOM: 1500;
+    --VSNO-ANIMATION-DECLARATION-SLIDEOUTRIGHT: 1500;
+}
+
+/* fadeIn */ /*********************************************************************************/
+.MMM-VisualNotifications .fadeIn .container,
+.MMM-VisualNotifications .fadeIn .section,
+.MMM-VisualNotifications .slideInTop .backdrop { animation: fadeIn 2s linear 0s 1 normal; }
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; } }
+/* fadeOut */ /*********************************************************************************/
+.MMM-VisualNotifications .fadeOut .container,
+.MMM-VisualNotifications .fadeOut .section,
+.MMM-VisualNotifications .slideInTop .backdrop { animation: fadeOut 2s linear 0s 1 normal; animation-fill-mode: forwards; }
+@keyframes fadeOut {
+    from { opacity: 1; } to { opacity: 0; } }
+/* slideInTop */ /*********************************************************************************/
+.MMM-VisualNotifications .slideInTop .container,
+.MMM-VisualNotifications .slideInTop .backdrop { animation: slideInTopContainer 1.5s linear 0s 1 normal; }
+.MMM-VisualNotifications .slideInTop .section { animation: slideInTopSection 1.5s linear 0s 1 normal; }
+@keyframes slideInTopContainer {
+    from { transform: translateY(-150%); } to { transform: translateY(0%); } }
+@keyframes slideInTopSection {
+    from { opacity: 0; } to { opacity: 1; } }
+/* slideInLeft */ /*********************************************************************************/
+.MMM-VisualNotifications .slideInLeft .container,
+.MMM-VisualNotifications .slideInLeft .backdrop { animation: slideInLeftContainer 1.5s linear 0s 1 normal; }
+.MMM-VisualNotifications .slideInLeft .section { animation: slideInLeftSection 1.5s linear 0s 1 normal; }
+@keyframes slideInLeftContainer {
+    from { transform: translateX(-150%); } to { transform: translateX(0%); } }
+@keyframes slideInLeftSection {
+    from { opacity: 0; } to { opacity: 1; } }
+/* slideOutBottom */ /*********************************************************************************/
+.MMM-VisualNotifications .slideOutBottom .container,
+.MMM-VisualNotifications .slideOutBottom .backdrop { animation: slideOutBottomContainer 1.5s linear 0s 1 normal; animation-fill-mode: forwards; }
+.MMM-VisualNotifications .slideOutBottom .section { animation: slideOutBottomSection 1.5s linear 0s 1 normal; animation-fill-mode: forwards; }
+@keyframes slideOutBottomContainer {
+    from { transform: translateY(0%); } to { transform: translateY(150%); } }
+@keyframes slideOutBottomSection {
+    from { opacity: 1; } to { opacity: 0; } }
+/* slideOutRight */ /*********************************************************************************/
+.MMM-VisualNotifications .slideOutRight .container,
+.MMM-VisualNotifications .slideOutRight .backdrop { animation: slideOutRightContainer 1.5s linear 0s 1 normal; animation-fill-mode: forwards; }
+.MMM-VisualNotifications .slideOutRight .section { animation: slideOutRightSection 1.5s linear 0s 1 normal; animation-fill-mode: forwards; }
+@keyframes slideOutRightContainer {
+    from { transform: translateX(0%); } to { transform: translateX(150%); } }
+@keyframes slideOutRightSection {
+    from { opacity: 1; } to { opacity: 0; } }
+
+
+/*************    DEFAULTS    **************/
+/* Resets */
+.MMM-VisualNotifications p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0px;
+    padding: 0px;
+}
+/* System messages */
+.MMM-VisualNotifications .verbose > span {
+    color: var(--VSNO-SYSTEM-INFO-COLOR);
+    max-width: 500px;
+}
+.MMM-VisualNotifications .verbose {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+.MMM-VisualNotifications .verbose .title {
+    font-size: 16px;
+}
+.MMM-VisualNotifications .verbose .subtitle {
+    font-size: 12px;
+    margin-top: -3px;
+    margin-bottom: 8px;
+}
+/* Baseline styles */
+.MMM-VisualNotifications .backdrop { 
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    z-index: 101;
+}
+.MMM-VisualNotifications .container {
+    display: flex;
+    flex-flow: column nowrap;
+
+}
+.MMM-VisualNotifications .section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 102;
+}
+.MMM-VisualNotifications .parent {
+    overflow: hidden;
+}

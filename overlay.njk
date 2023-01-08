@@ -1,0 +1,143 @@
+
+{################# ERROR #################}
+{% macro showError(error) %}
+    <div class="verbose base" style="{{ 'height: auto' if (error.type === 'ERROR_HEADER') or (error.type === 'ERROR_POSITION') }}">
+        <span class="title">{{ "ERROR_BASE" | translate | safe }}</span>
+        <span class="subtitle">{{ error.type | translate | safe }}</span>
+    </div>
+{% endmacro %}
+
+{################# COMPONENT SELECTION #################}
+{% macro getElement(component, notification, insideContainer) %}
+    {{ compEmpty(component, notification, insideContainer) if (component.type === "empty") }}
+    {{ compGap(component, notification, insideContainer) if (component.type === "gap") }}
+    {{ compIcon(component, notification, insideContainer) if (component.type === "icon") }}
+    {{ compTitle(component, notification, insideContainer) if (component.type === "title") }}
+    {{ compSubtitle(component, notification, insideContainer) if (component.type === "subtitle") }}
+    {{ compImage(component, notification, insideContainer) if (component.type === "image") }}
+    {{ compMessage(component, notification, insideContainer) if (component.type === "message") }}
+    {{ compProgress(component, notification, insideContainer) if (component.type === "progress") }}
+{% endmacro %}
+
+{################# COMPONENT DECLARATION #################}
+{% macro compEmpty(component, notification, insideContainer) %}
+    <div
+        style="{{component.style if component.style}}"
+        class="empty {{(notification.styleSet + '-empty') if notification.styleSet}} {{'insideContainer' if insideContainer else 'ousideContainer'}} {{component.classes if component.classes}}">
+    </div>
+{% endmacro %}
+
+{% macro compGap(component, notification, insideContainer) %}
+    <div
+        style="{{component.style if component.style}}"
+        class="gap {{('gap-' + component.size) if component.size}} {{(notification.styleSet + '-gap-' + component.size) if component.size and notification.styleSet}} {{(notification.styleSet + '-gap') if notification.styleSet}} {{'insideContainer' if insideContainer else 'ousideContainer'}} {{component.classes if component.classes}}">
+    </div>
+{% endmacro %}
+
+{% macro compIcon(component, notification, insideContainer) %}
+    {% if component.url %}
+    <img
+        style="{{component.style if component.style}}"
+        class="icon {{(notification.styleSet + '-icon') if notification.styleSet}} {{'insideContainer' if insideContainer else 'ousideContainer'}} {{component.classes if component.classes }}"
+        src="{{component.url}}">
+    </img>
+    {% endif %}
+    {% if component.path %}
+    <svg
+        style="{{component.style if component.style}}"
+        class="icon {{(notification.styleSet + '-icon') if notification.styleSet}} {{'insideContainer' if insideContainer else 'ousideContainer'}} {{component.classes if component.classes }}"
+        fill="currentColor" {{component.inline | safe}}> {{component.path | safe}} </svg>
+    {% endif %}
+{% endmacro %}
+
+{% macro compTitle(component, notification, insideContainer) %}
+    <span
+        style="{{component.style if component.style}}"
+        class="title {{(notification.styleSet + '-title') if notification.styleSet}} {{'inContainer' if insideContainer else 'ousideContainer'}} {{component.classes if component.classes}}">
+            {{component.text | safe}}
+    </span>
+{% endmacro %}
+
+{% macro compSubtitle(component, notification, insideContainer) %}
+    <span
+        style="{{component.style if component.style}}"
+        class="subtitle {{(notification.styleSet + '-subtitle') if notification.styleSet}} {{'inContainer' if insideContainer else 'ousideContainer'}} {{component.classes if component.classes }}">
+            {{component.text | safe}}
+    </span>
+{% endmacro %}
+
+{% macro compImage(component, notification, insideContainer) %}
+    <img
+        style="{{component.style if component.style}}"
+        class="image {{(notification.styleSet + '-image') if notification.styleSet}} {{'inContainer' if insideContainer else 'ousideContainer'}} {{component.classes if component.classes}}"
+        src="{{component.url}}">
+    </img>
+{% endmacro %}
+
+{% macro compMessage(component, notification, insideContainer) %}
+    <span
+        style="{{component.style if component.style}}"
+        class="message {{(notification.styleSet + '-message') if notification.styleSet}} {{'inContainer' if insideContainer else 'ousideContainer'}} {{component.classes if component.classes}}">
+            {{component.text | safe}}
+    </span>
+{% endmacro %}
+
+{% macro compProgress(component, notification, insideContainer) %}
+    <span
+    style="{{component.style if component.style}}"
+    class="progress {{(notification.styleSet + '-progress') if notification.styleSet}} {{'inContainer' if insideContainer else 'ousideContainer'}} {{component.classes if component.classes}}">
+        <span
+        style="{{component.styleProgressBg if component.styleProgressBg}}"
+        class="progress-bg {{(notification.styleSet + '-progress-bg') if notification.styleSet}} {{component.classesProgressBg if component.classesProgressBg }}">
+            <span
+            style="{{('width: ' + component.progress + '%;') if (component.progress >= 0 )}} {{component.styleProgressBar if component.styleProgressBar}}"
+            class="progress-bar {{(notification.styleSet + '-progress-bar') if notification.styleSet}} {{component.classesProgressBar if component.classesProgressBar }}"></span>
+        </span>
+        <span
+        style="{{component.styleProgressData if component.styleProgressData}}"
+        class="progress-data {{(notification.styleSet + '-progress-data') if notification.styleSet}} {{component.classesProgressData if component.classesProgressData }}">
+            <span
+            style="{{component.styleProgressDataText if component.styleProgressDataText}}"
+            class="progress-data-text {{(notification.styleSet + '-progress-data-text') if notification.styleSet}} {{component.classesProgressDataText if component.classesProgressDataText }}">
+            {{ component.text | safe}}
+            </span>
+            <span
+            style="{{component.styleProgressDataNumber if component.styleProgressDataNumber}}"
+            class="progress-data-number {{(notification.styleSet + '-progress-data-number') if notification.styleSet}} {{component.classesProgressDataNumber if component.classesProgressDataNumber }}">
+            {{ (component.progress + '%') if component.showProgress }}
+            </span>
+        </span>
+    </span>
+{% endmacro %}
+
+{################# MAIN #################}
+{% if error %}
+    {{ showError(error) }}
+{% elif notification %}
+    <div
+    class="parent {{notification.styleSet if notification.styleSet}} {{notification.animationIn.name if notification.animationIn and (notification.animationStatus === 'in')}} {{notification.animationOut.name if notification.animationOut and (notification.animationStatus === 'out')}}">
+        <div
+        class="backdrop {{(notification.styleSet + '-backdrop') if notification.styleSet}} {{notification.other.classes.backdrop if notification.other.classes.backdrop}}"
+        style="{{notification.other.styles.backdrop if notification.other.styles.backdrop}}">
+            {% for section in notification.display %} 
+                <div
+                class="section {{(notification.styleSet + '-section') if notification.styleSet}} {{notification.other.classes.section if notification.other.classes.section }}"
+                style="{{notification.other.styles.section if notification.other.styles.section}}">
+                    {% if section.type %}
+                        {{ getElement(section, notification, false) }}
+                    {% else %}
+                        <div
+                        class="container {{(notification.styleSet + '-container') if notification.styleSet}} {{notification.other.classes.container if notification.other.classes.container }}"
+                        style="{{notification.other.styles.container if notification.other.styles.container}}">
+                            {% for element in section %} 
+                                {{ getElement(element, notification, true) }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% else %}
+    <div class="waiting"></div>
+{% endif %}
